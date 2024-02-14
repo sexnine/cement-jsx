@@ -1,0 +1,37 @@
+{
+  "name": "cement-jsx",
+  "version": "0.0.1",
+  "description": "React(ivity)-less JSX purely for SSR",
+  "main": "index.js",
+  "scripts": {
+    "build": "pnpm run build:esm && pnpm run build:cjs && pnpm run build:types",
+    "build:esm": "esbuild ./src/index.ts --bundle --sourcemap --minify --outfile=dist/index.mjs --format=esm",
+    "build:cjs": "esbuild ./src/index.ts --bundle --sourcemap --minify --outfile=dist/index.cjs --format=cjs",
+    "build:types": "tsup ./src/index.ts --dts-only --out-dir dist",
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sexnine/cement-jsx.git"
+  },
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "author": "sexnine",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sexnine/cement-jsx/issues"
+  },
+  "homepage": "https://github.com/sexnine/cement-jsx#readme",
+  "devDependencies": {
+    "@biomejs/biome": "^1.5.3",
+    "esbuild": "^0.20.0",
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.2"
+  }
+}
