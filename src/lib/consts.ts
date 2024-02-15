@@ -17,4 +17,8 @@ export const SELF_CLOSING_TAGS = new Set([
   "wbr",
 ]);
 
-export const SPECIAL_PROPS = new Set(["$innerHTML", "$selfClosing"]);
+export const SPECIAL_PROPS = new Set([
+  "$innerHTML",
+  "$selfClosing",
+  "$children",
+]);
