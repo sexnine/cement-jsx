@@ -89,12 +89,16 @@ const childToString = (child: unknown): string => {
 };
 
 const propToAttribute = (key: string, value: VNode): string => {
+  if (value === null || value === undefined) {
+    return "";
+  }
+
   if (typeof value === "boolean") {
     return value ? ` ${key}` : "";
   }
 
   return ` ${key}="${value
-    ?.toString()
+    .toString()
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;")}"`;
 };
