@@ -76,12 +76,17 @@ const childrenToString = (children: unknown[]): string => {
     .join("");
 };
 
-const childToString = (child: unknown): string | undefined =>
-  child
-    ?.toString()
+const childToString = (child: unknown): string => {
+  if (child === null || child === undefined || typeof child === "boolean") {
+    return "";
+  }
+
+  return child
+    .toString()
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;");
+};
 
 const propToAttribute = (key: string, value: VNode): string => {
   if (typeof value === "boolean") {

@@ -1,6 +1,6 @@
 {
   "name": "cement-jsx",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "React(ivity)-less JSX purely for SSR",
   "scripts": {
     "build": "pnpm run build:esm && pnpm run build:cjs && pnpm run build:types",
